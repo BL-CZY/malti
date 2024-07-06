@@ -38,6 +38,10 @@ if part_of_speach is v
 *imperf_p2pl_n_n_neg
 *imperf_p3pl_n_n_pos
 *imperf_p3pl_n_n_neg
+*imp_sg_n_n_pos
+*imp_sg_n_n_neg
+*imp_pl_n_n_pos
+*imp_pl_n_n_neg
 
 *perf_p1sg_p1sg_n_pos
 *perf_p1sg_p1sg_n_neg
@@ -67,6 +71,10 @@ if part_of_speach is v
 *imperf_p2pl_p1sg_n_neg
 *imperf_p3pl_p1sg_n_pos
 *imperf_p3pl_p1sg_n_neg
+*imp_sg_p1sg_n_pos
+*imp_sg_p1sg_n_neg
+*imp_pl_p1sg_n_pos
+*imp_pl_p1sg_n_neg
 
 *perf_p1sg_p2sg_n_pos
 *perf_p1sg_p2sg_n_neg
@@ -96,6 +104,10 @@ if part_of_speach is v
 *imperf_p2pl_p2sg_n_neg
 *imperf_p3pl_p2sg_n_pos
 *imperf_p3pl_p2sg_n_neg
+*imp_sg_p2sg_n_pos
+*imp_sg_p2sg_n_neg
+*imp_pl_p2sg_n_pos
+*imp_pl_p2sg_n_neg
 
 *perf_p1sg_p3sgm_n_pos
 *perf_p1sg_p3sgm_n_neg
@@ -125,6 +137,10 @@ if part_of_speach is v
 *imperf_p2pl_p3sgm_n_neg
 *imperf_p3pl_p3sgm_n_pos
 *imperf_p3pl_p3sgm_n_neg
+*imp_sg_p3sgm_n_pos
+*imp_sg_p3sgm_n_neg
+*imp_pl_p3sgm_n_pos
+*imp_pl_p3sgm_n_neg
 
 *perf_p1sg_p3sgf_n_pos
 *perf_p1sg_p3sgf_n_neg
@@ -154,6 +170,10 @@ if part_of_speach is v
 *imperf_p2pl_p3sgf_n_neg
 *imperf_p3pl_p3sgf_n_pos
 *imperf_p3pl_p3sgf_n_neg
+*imp_sg_p3sgf_n_pos
+*imp_sg_p3sgf_n_neg
+*imp_pl_p3sgf_n_pos
+*imp_pl_p3sgf_n_neg
 
 *perf_p1sg_p1pl_n_pos
 *perf_p1sg_p1pl_n_neg
@@ -183,6 +203,10 @@ if part_of_speach is v
 *imperf_p2pl_p1pl_n_neg
 *imperf_p3pl_p1pl_n_pos
 *imperf_p3pl_p1pl_n_neg
+*imp_sg_p1pl_n_pos
+*imp_sg_p1pl_n_neg
+*imp_pl_p1pl_n_pos
+*imp_pl_p1pl_n_neg
 
 *perf_p1sg_p2pl_n_pos
 *perf_p1sg_p2pl_n_neg
@@ -212,6 +236,10 @@ if part_of_speach is v
 *imperf_p2pl_p2pl_n_neg
 *imperf_p3pl_p2pl_n_pos
 *imperf_p3pl_p2pl_n_neg
+*imp_sg_p2pl_n_pos
+*imp_sg_p2pl_n_neg
+*imp_pl_p2pl_n_pos
+*imp_pl_p2pl_n_neg
 
 *perf_p1sg_p3pl_n_pos
 *perf_p1sg_p3pl_n_neg
@@ -241,6 +269,10 @@ if part_of_speach is v
 *imperf_p2pl_p3pl_n_neg
 *imperf_p3pl_p3pl_n_pos
 *imperf_p3pl_p3pl_n_neg
+*imp_sg_p3pl_n_pos
+*imp_sg_p3pl_n_neg
+*imp_pl_p3pl_n_pos
+*imp_pl_p3pl_n_neg
 
 *perf_p1sg_n_p1sg_pos
 *perf_p1sg_n_p1sg_neg
@@ -270,6 +302,10 @@ if part_of_speach is v
 *imperf_p2pl_n_p1sg_neg
 *imperf_p3pl_n_p1sg_pos
 *imperf_p3pl_n_p1sg_neg
+*imp_sg_n_p1sg_pos
+*imp_sg_n_p1sg_neg
+*imp_pl_n_p1sg_pos
+*imp_pl_n_p1sg_neg
 
 *perf_p1sg_n_p2sg_pos
 *perf_p1sg_n_p2sg_neg
@@ -299,64 +335,76 @@ if part_of_speach is v
 *imperf_p2pl_n_p2sg_neg
 *imperf_p3pl_n_p2sg_pos
 *imperf_p3pl_n_p2sg_neg
+*imp_sg_n_p2sg_pos
+*imp_sg_n_p2sg_neg
+*imp_pl_n_p2sg_pos
+*imp_pl_n_p2sg_neg
 
-*perf_p1sg_pn_3sgm_pos
-*perf_p1sg_pn_3sgm_neg
-*perf_p2sg_pn_3sgm_pos
-*perf_p2sg_pn_3sgm_neg
-*perf_p3sgm_pn_3sgm_pos
-*perf_p3sgm_pn_3sgm_neg
-*perf_p3sgf_pn_3sgm_pos
-*perf_p3sgf_pn_3sgm_neg
-*perf_p1pl_pn_3sgm_pos
-*perf_p1pl_pn_3sgm_neg
-*perf_p2pl_pn_3sgm_pos
-*perf_p2pl_pn_3sgm_neg
-*perf_p3pl_pn_3sgm_pos
-*perf_p3pl_pn_3sgm_neg
-*imperf_p1sg_pn_3sgm_pos
-*imperf_p1sg_pn_3sgm_neg
-*imperf_p2sg_pn_3sgm_pos
-*imperf_p2sg_pn_3sgm_neg
-*imperf_p3sgm_pn_3sgm_pos
-*imperf_p3sgm_pn_3sgm_neg
-*imperf_p3sgf_pn_3sgm_pos
-*imperf_p3sgf_pn_3sgm_neg
-*imperf_p1pl_pn_3sgm_pos
-*imperf_p1pl_pn_3sgm_neg
-*imperf_p2pl_pn_3sgm_pos
-*imperf_p2pl_pn_3sgm_neg
-*imperf_p3pl_pn_3sgm_pos
-*imperf_p3pl_pn_3sgm_neg
+*perf_p1sg_n_p3sgm_pos
+*perf_p1sg_n_p3sgm_neg
+*perf_p2sg_n_p3sgm_pos
+*perf_p2sg_n_p3sgm_neg
+*perf_p3sgm_n_p3sgm_pos
+*perf_p3sgm_n_p3sgm_neg
+*perf_p3sgf_n_p3sgm_pos
+*perf_p3sgf_n_p3sgm_neg
+*perf_p1pl_n_p3sgm_pos
+*perf_p1pl_n_p3sgm_neg
+*perf_p2pl_n_p3sgm_pos
+*perf_p2pl_n_p3sgm_neg
+*perf_p3pl_n_p3sgm_pos
+*perf_p3pl_n_p3sgm_neg
+*imperf_p1sg_n_p3sgm_pos
+*imperf_p1sg_n_p3sgm_neg
+*imperf_p2sg_n_p3sgm_pos
+*imperf_p2sg_n_p3sgm_neg
+*imperf_p3sgm_n_p3sgm_pos
+*imperf_p3sgm_n_p3sgm_neg
+*imperf_p3sgf_n_p3sgm_pos
+*imperf_p3sgf_n_p3sgm_neg
+*imperf_p1pl_n_p3sgm_pos
+*imperf_p1pl_n_p3sgm_neg
+*imperf_p2pl_n_p3sgm_pos
+*imperf_p2pl_n_p3sgm_neg
+*imperf_p3pl_n_p3sgm_pos
+*imperf_p3pl_n_p3sgm_neg
+*imp_sg_n_p3sgm_pos
+*imp_sg_n_p3sgm_neg
+*imp_pl_n_p3sgm_pos
+*imp_pl_n_p3sgm_neg
 
-*perf_p1sg_pn_3sgf_pos
-*perf_p1sg_pn_3sgf_neg
-*perf_p2sg_pn_3sgf_pos
-*perf_p2sg_pn_3sgf_neg
-*perf_p3sgm_pn_3sgf_pos
-*perf_p3sgm_pn_3sgf_neg
-*perf_p3sgf_pn_3sgf_pos
-*perf_p3sgf_pn_3sgf_neg
-*perf_p1pl_pn_3sgf_pos
-*perf_p1pl_pn_3sgf_neg
-*perf_p2pl_pn_3sgf_pos
-*perf_p2pl_pn_3sgf_neg
-*perf_p3pl_pn_3sgf_pos
-*perf_p3pl_pn_3sgf_neg
-*imperf_p1sg_pn_3sgf_pos
-*imperf_p1sg_pn_3sgf_neg
-*imperf_p2sg_pn_3sgf_pos
-*imperf_p2sg_pn_3sgf_neg
-*imperf_p3sgm_pn_3sgf_pos
-*imperf_p3sgm_pn_3sgf_neg
-*imperf_p3sgf_pn_3sgf_pos
-*imperf_p3sgf_pn_3sgf_neg
-*imperf_p1pl_pn_3sgf_pos
-*imperf_p1pl_pn_3sgf_neg
-*imperf_p2pl_pn_3sgf_pos
-*imperf_p2pl_pn_3sgf_neg
-*imperf_p3pl_pn_3sgf_pos
-*imperf_p3pl_pn_3sgf_neg
+*perf_p1sg_n_p3sgf_pos
+*perf_p1sg_n_p3sgf_neg
+*perf_p2sg_n_p3sgf_pos
+*perf_p2sg_n_p3sgf_neg
+*perf_p3sgm_n_p3sgf_pos
+*perf_p3sgm_n_p3sgf_neg
+*perf_p3sgf_n_p3sgf_pos
+*perf_p3sgf_n_p3sgf_neg
+*perf_p1pl_n_p3sgf_pos
+*perf_p1pl_n_p3sgf_neg
+*perf_p2pl_n_p3sgf_pos
+*perf_p2pl_n_p3sgf_neg
+*perf_p3pl_n_p3sgf_pos
+*perf_p3pl_n_p3sgf_neg
+*imperf_p1sg_n_p3sgf_pos
+*imperf_p1sg_n_p3sgf_neg
+*imperf_p2sg_n_p3sgf_pos
+*imperf_p2sg_n_p3sgf_neg
+*imperf_p3sgm_n_p3sgf_pos
+*imperf_p3sgm_n_p3sgf_neg
+*imperf_p3sgf_n_p3sgf_pos
+*imperf_p3sgf_n_p3sgf_neg
+*imperf_p1pl_n_p3sgf_pos
+*imperf_p1pl_n_p3sgf_neg
+*imperf_p2pl_n_p3sgf_pos
+*imperf_p2pl_n_p3sgf_neg
+*imperf_p3pl_n_p3sgf_pos
+*imperf_p3pl_n_p3sgf_neg
+*imp_sg_n_p3sgf_pos
+*imp_sg_n_p3sgf_neg
+*imp_pl_n_p3sgf_pos
+*imp_pl_n_p3sgf_neg
 
 *perf_p1sg_n_p1pl_pos
 *perf_p1sg_n_p1pl_neg
@@ -386,6 +434,10 @@ if part_of_speach is v
 *imperf_p2pl_n_p1pl_neg
 *imperf_p3pl_n_p1pl_pos
 *imperf_p3pl_n_p1pl_neg
+*imp_sg_n_p1pl_pos
+*imp_sg_n_p1pl_neg
+*imp_pl_n_p1pl_pos
+*imp_pl_n_p1pl_neg
 
 *perf_p1sg_n_p2pl_pos
 *perf_p1sg_n_p2pl_neg
@@ -415,6 +467,10 @@ if part_of_speach is v
 *imperf_p2pl_n_p2pl_neg
 *imperf_p3pl_n_p2pl_pos
 *imperf_p3pl_n_p2pl_neg
+*imp_sg_n_p2pl_pos
+*imp_sg_n_p2pl_neg
+*imp_pl_n_p2pl_pos
+*imp_pl_n_p2pl_neg
 
 *perf_p1sg_n_p3pl_pos
 *perf_p1sg_n_p3pl_neg
@@ -444,6 +500,10 @@ if part_of_speach is v
 *imperf_p2pl_n_p3pl_neg
 *imperf_p3pl_n_p3pl_pos
 *imperf_p3pl_n_p3pl_neg
+*imp_sg_n_p3pl_pos
+*imp_sg_n_p3pl_neg
+*imp_pl_n_p3pl_pos
+*imp_pl_n_p3pl_neg
 
 if part_of_speach is adj
 *m_sg
