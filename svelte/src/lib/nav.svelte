@@ -1,9 +1,13 @@
 <style>
     #topnav {
-        background-color: rgb(240, 240, 240);;
+        background-color: rgb(240, 240, 240);
         border-bottom: 1px solid rgb(105, 105, 105);
+        border-top: 3px solid rgb(255,82,82);
         padding: 2px 70px 2px 70px;
-        overflow: hidden;
+        z-index: 2;
+        min-width: 100%;
+        position: fixed;
+        box-sizing: border-box;
     }
 
     #left {
@@ -15,6 +19,7 @@
         flex: 1;
         text-align: right;
         display: flex;
+        justify-content: space-between;
     }
     
     #search {
@@ -41,39 +46,57 @@
 
     #search-btn {
         position: absolute;
-        top: -8%;
+        top: 0px;
+        bottom: 0px;
         right: calc(0% + 8px);
+        border: 1px solid rgb(194, 194, 194);
+    }
+
+    #search-btn:hover {
+        border: 1px solid black;
+    }
+
+    .special-char-btn {
+        border: 1px solid rgb(194, 194, 194);
+    }
+
+    .special-char-btn:hover {
+        border: 1px solid black;
     }
 
     #special-char-btn1 {
         position: absolute;
-        top: -8%;
-        right: calc(0% + 62px);
+        top: 0px;
+        bottom: 0px;
+        right: calc(0% + 63px);
     }
 
     #special-char-btn2 {
         position: absolute;
-        top: -8%;
-        right: calc(0% + 81px);
+        top: 0px;
+        bottom: 0px;
+        right: calc(0% + 85px);
     }
 
     #special-char-btn3 {
         position: absolute;
-        top: -8%;
-        right: calc(0% + 102px);
+        top: 0px;
+        bottom: 0px;
+        right: calc(0% + 108px);
     }
 
     #special-char-btn4 {
         position: absolute;
-        top: -8%;
-        right: calc(0% + 123px);
+        top: 0px;
+        bottom: 0px;
+        right: calc(0% + 132px);
     }
 
     #search-bar {
         width: 70%;
         transition: all, 0.5s;
         border-radius: 5px;
-        border: 1px solid rgb(105, 105, 105);
+        border: 1px solid rgb(194, 194, 194);
         padding: 5px;
     }
 
@@ -98,6 +121,7 @@
     ul {
         display: flex;
         padding: 0;
+        justify-content: space-between;
     }
 
     li {
@@ -119,72 +143,20 @@
 
     a:hover {
         color: black;
-    }
-
-    a:hover::after {
-        position: absolute;
-        content: '';
-        display: block;
-        height: 1.5px;
-        background-color: red;
-        bottom: 1px;
-    }
-
-    a::after {
-        position: absolute;
-        content: '';
-        display: block;
-        height: 1.5px;
-        background-color: red;
-        bottom: 1px;
-        transition: all, 0.5s;
-    }
-
-    #about-link::after {
-        right: 26px;
-        width: 0;
-    }
-
-    #about-link:hover::after {
-        right: -2px;
-        width: 50px;
-    }
-
-    #source-link::after {
-        right: 26px;
-        width: 0;
-    }
-
-    #source-link:hover::after {
-        right: -2px;
-        width: 58px;
+        padding: 10px;
+        border-radius: 20px;
+        background-color: rgba(203, 203, 203, 0.466);
     }
 
     @media only screen and (max-width: 550px) {
         .special-char-btn {
             display: none !important;
         }
-
-        #search-bar {
-            width: 40%;
-        }
-
-        #search-bar:active {
-            width: 40%;
-        }
     }
 
     @media only screen and (max-width: 460px) {
         #search-btn {
             display: none !important;
-        }
-
-        #search-bar {
-            width: 100%;
-        }
-
-        #search-bar:active {
-            width: 100%;
         }
     }
 </style>
@@ -218,6 +190,11 @@
         </div>
     </ul>
 </nav>
+
+<br />
+<br />
+<br />
+<br />
 
 <script>
     let inputVal = "";
