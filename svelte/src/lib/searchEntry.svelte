@@ -20,41 +20,59 @@
 
     #sub-entry1 {
         flex: 1;
+        padding-left: 20px;
     }
 
     #sub-entry2 {
-        flex: 5;
+        flex: 1;
     }
 
     #sub-entry3 {
-        flex: 5;
+        flex: 1;
     }
 
     #sub-entry4 {
-        flex: 5;
+        flex: 1.5;
     }
 
     #sub-entry5 {
-        flex: 5;
+        flex: 4;
+    }
+
+    .sub-entry {
+        text-align: left;
     }
 
     hr {
         width: 87%;
+        size: 1px;
+        color: rgb(240, 240, 240);
     }
 
     button {
-        width: 85%;
+        width: 80%;
+        min-height: 100px;
         padding: 0;
         user-select: text;
         transition: all 0.5s;
-        border: 1px solid white;
+        border: 1px solid rgb(205, 205, 205);
+        background-color: rgb(240, 240, 240);
         border-radius: 10px;
         padding-top: 10px;
         padding-bottom: 10px;
+        scale: 1;;
     }
 
     button:hover {
+        min-height: 140px;
         border-color: black;
+        background-color: rgb(205, 205, 205);
+        width: 85%;
+        scale: 1;
+    }
+
+    button:active {
+        scale: 0.9;
     }
 
     #wrapper {
