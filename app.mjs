@@ -1,3 +1,5 @@
+"use strict";
+
 import express from 'express'
 import { handler } from './svelte/build/handler.js'
 import { search } from '@jg-tpl/malti_search';
@@ -24,20 +26,36 @@ app.get('/api/search', (req, res) => {
     }
 
     try {
-        skip = parseInt(skip.trim())
-    } catch (e) {
+        skip = Math.max(parseInt(skip), 0)
+    } catch (_) {
         console.log(e);
         skip = 0;
     }
 
     try {
-        limit = parseInt(limit.trim());
-    } catch (e) {
+        limit = Math.max(parseInt(limit), 0);
+    } catch (_) {
         console.log(e);
         limit = 10;
     }
 
-    search(keyword, exact, text, skip, limit);
+    let searched = search(keyword, exact, text, skip, limit);
+    let result = {
+        words: []
+    };
+
+    searched.forEach((str) => {
+        if(str.startsWith("\"")) {
+            str = str.substring(1);
+        }
+
+        if(str.endsWith("\"")) {
+            str = str.substring(0, str.length - 1);
+        }
+        result.words.push(str);
+    });
+
+    res.write(JSON.stringify(result));
 
     res.end();
 });
