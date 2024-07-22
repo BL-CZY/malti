@@ -39,17 +39,8 @@
         position: relative;
     }
 
-    #input-wrapper {
-        display: inline;
-        position: relative;
-    }
-
     #search-btn {
-        position: absolute;
-        top: 0px;
-        bottom: 0px;
-        right: calc(0% + 8px);
-        border: 1px solid rgb(194, 194, 194);
+        border: 1px solid rgb(194, 194, 194);;
     }
 
     #search-btn:hover {
@@ -64,36 +55,8 @@
         border: 1px solid black;
     }
 
-    #special-char-btn1 {
-        position: absolute;
-        top: 0px;
-        bottom: 0px;
-        right: calc(0% + 63px);
-    }
-
-    #special-char-btn2 {
-        position: absolute;
-        top: 0px;
-        bottom: 0px;
-        right: calc(0% + 85px);
-    }
-
-    #special-char-btn3 {
-        position: absolute;
-        top: 0px;
-        bottom: 0px;
-        right: calc(0% + 108px);
-    }
-
-    #special-char-btn4 {
-        position: absolute;
-        top: 0px;
-        bottom: 0px;
-        right: calc(0% + 132px);
-    }
-
     #search-bar {
-        width: 70%;
+        width: 50%;
         transition: all, 0.5s;
         border-radius: 5px;
         border: 1px solid rgb(194, 194, 194);
@@ -103,6 +66,7 @@
     #search-bar:focus {
         outline: none;
         border-color: black;
+        width: 70%;
     }
 
     button {
@@ -148,6 +112,10 @@
         background-color: rgba(203, 203, 203, 0.466);
     }
 
+    form {
+        display: inline;
+    }
+
     @media only screen and (max-width: 550px) {
         .special-char-btn {
             display: none !important;
@@ -169,14 +137,14 @@
             </li>
             <li id="search">
                 <div id="search-wrapper">
-                    <div id="input-wrapper">
-                        <button id="special-char-btn1" class="special-char-btn" on:click={() => appendSpecialLetter("ċ")}>ċ</button>
-                        <button id="special-char-btn2" class="special-char-btn" on:click={() => appendSpecialLetter("ġ")}>ġ</button>
-                        <button id="special-char-btn3" class="special-char-btn" on:click={() => appendSpecialLetter("ħ")}>ħ</button>
-                        <button id="special-char-btn4" class="special-char-btn" on:click={() => appendSpecialLetter("ż")}>ż</button>
-                        <input id="search-bar" placeholder="  search..." bind:value={inputVal}>
+                    <button id="special-char-btn1" class="special-char-btn" on:click={() => appendSpecialLetter("ċ")}>ċ</button>
+                    <button id="special-char-btn2" class="special-char-btn" on:click={() => appendSpecialLetter("ġ")}>ġ</button>
+                    <button id="special-char-btn3" class="special-char-btn" on:click={() => appendSpecialLetter("ħ")}>ħ</button>
+                    <button id="special-char-btn4" class="special-char-btn" on:click={() => appendSpecialLetter("ż")}>ż</button>
+                    <form method="get" action="/search" on:submit={handleSubmit}>
                         <button id="search-btn">search</button>
-                    </div>
+                        <input id="search-bar" placeholder="  search..." bind:value={inputVal}>
+                    </form>
                 </div>
             </li>
         </div>
@@ -197,10 +165,17 @@
 <br />
 
 <script>
+    import { goto } from '$app/navigation';
+
     let inputVal = "";
 
     let appendSpecialLetter = (letter) => {
         inputVal += letter;
+    }
+
+    async function handleSubmit(event) {
+        event.preventDefault();
+        await goto(`/search?query=${inputVal}&skip=0&limit=10`);
     }
 </script>
 
