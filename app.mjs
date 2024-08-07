@@ -3,11 +3,13 @@
 import express from "express";
 import { handler } from "./svelte/build/handler.js";
 import { getWord, search } from "@jg-tpl/malti_search";
+import cors from 'cors';
 
 const app = express();
 const port = 3000;
 
 app.use(express.urlencoded({ extended: true }));
+app.use(cors());
 
 app.listen(port, () => {
     console.log(`app running on port ${port}`);

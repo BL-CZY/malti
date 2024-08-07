@@ -165,6 +165,7 @@
 <br />
 
 <script>
+    import { invalidate } from '$app/navigation';
     import { goto } from '$app/navigation';
 
     let inputVal = "";
@@ -173,9 +174,22 @@
         inputVal += letter;
     }
 
+    let sanitizeInput = (input) => {
+        if (input != "" && input[0] == " ") {
+            input = input.substring(1);
+        }
+
+        if (input != "" && input[input.length - 1] == " ") {
+            input = input.substring(0, input.length - 1);
+        }
+
+        return input;
+    }
+
     async function handleSubmit(event) {
         event.preventDefault();
-        await goto(`/search?query=${inputVal}&skip=0&limit=10`);
+        await goto(`/search?query=${sanitizeInput(inputVal)}&skip=0&limit=10`);
+        window.location.reload();
     }
 </script>
 
