@@ -44,13 +44,14 @@ app.get("/api/search", (req, res) => {
 });
 
 app.get("/api/fetch", (req, res) => {
-    let keyword = req.query.keyword;
-    if (!keyword) {
+    let key = req.query.key;
+    if (!key) {
         res.status(404).write("invalid keyword");
+        res.end();
         return;
     }
 
-    res.write(getWord(keyword));
+    res.write(getWord(key));
     
     res.end();
 })

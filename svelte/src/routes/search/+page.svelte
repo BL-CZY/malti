@@ -1,6 +1,5 @@
 <script>
     import SearchEntry from "$lib/searchEntry.svelte"
-    let en = ["wo", "po", "vo", "ho", "to"];
     import { page } from "$app/stores"
     import { onMount } from "svelte";
     
