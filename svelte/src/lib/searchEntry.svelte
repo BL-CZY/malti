@@ -82,7 +82,7 @@
 </style>
 
 <div id="wrapper">
-    <button on:click={() => console.log("wow")}>
+    <button on:click={goFetch}>
         <ul id="main">
             <li id = "sub-entry1" class="sub-entry">{index}.</li>
             <li id = "sub-entry2" class="sub-entry"><a href={url}>{word}</a></li>
@@ -102,10 +102,16 @@
 
 
 <script>
+    import { goto } from "$app/navigation";
+
     export let index;
     export let word;
     export let pos;
     export let en;
     export let matched;
     export let url;
+
+    async function goFetch() {
+        goto(url);
+    }
 </script>

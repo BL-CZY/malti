@@ -50,5 +50,5 @@
 
 <hr />
 {#each searchResults as word, index}
-    <SearchEntry index={index + 1} word={word} pos="idk" en={en} matched="idk" url="/"/>    
+    <SearchEntry index={index + 1} word={word.word} pos={word.pos} en={word.en} matched={word.matched} url={`/word?key=${word.key}`}/>    
 {/each}
