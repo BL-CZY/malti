@@ -32,7 +32,7 @@
     }
 
     #phon-wrap {
-        margin-top: -20px;
+        margin-top: -10px;
     }
 
     #phon {

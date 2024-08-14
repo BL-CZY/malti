@@ -2,6 +2,8 @@
     #main {
         border-radius: 10px;
         min-height: 650px;
+        max-height: 650px;
+        overflow-y: auto;
         border: 1px solid rgb(205, 205, 205);
         background-color: white;
         transition: all 0.5s;
@@ -95,6 +97,17 @@
     {#each examples as exp}
         <p class="exp">"{exp}"</p>
     {/each}
+ 
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
 </div>
 
 <script>

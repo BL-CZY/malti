@@ -21,7 +21,7 @@
 
 <div id="main">
     <div id="left" class="sub">
-        <GeneralWord word={word.word} pos={word.pos} root={word.root} en={word.en} phon={word.wordPhon}/>
+        <GeneralWord word={word.surf} pos={word.pos} root={word.root} en={word.en} phon={word.surfPhon}/>
     </div>
 
     <div id="mid"></div>
@@ -29,6 +29,10 @@
     <div id="right" class="sub">
         {#if word.pos == "n"}
             <Noun sg={word.sg} sgPhon={word.sgPhon} sgGen={word.sgGen} pl={word.pl} plPhon={word.plPhon} plGen={word.plGen} examples={word.examples}/>
+        {/if}
+
+        {#if word.pos == "v"}
+            <Verb word={word} />
         {/if}
     </div>
 </div>
@@ -38,42 +42,19 @@
     import { onMount } from "svelte";
     import GeneralWord from "$lib/generalWord.svelte";
     import Noun from "$lib/noun.svelte";
+    import Verb from "$lib/verb.svelte";
     let key = $page.url.searchParams.get('key');
 
     $: word = {
-        word: "",
-        wordPhon: "",
         pos: "",
+        surfPhon: "",
         root: "",
-        en: [""],
-        examples: [""],
-
-        sg: "",
-        sgPhon: "",
-        sgGen: "",
-        pl: "",
-        plPhon: "",
-        plGen: "",
+        surf: "",
+        en: []
     };
 
     let setVal = (json) => {
-        word.word = json.surf;
-        word.pos = json.pos;
-        word.root = json.root;
-        word.en = json.en;
-        word.wordPhon = json.surfPhon;
-        word.examples = json.examples;
-        
-        switch(json.pos) {
-            case "n":
-                word.sg = json.sg;
-                word.sgPhon = json.sgPhon;
-                word.sgGen = json.gen;
-                word.pl = json.pl;
-                word.plPhon = json.plPhon;
-                word.plGen = "mf";
-                break;
-        }
+        word = json;
     }
 
     async function getWord() {
