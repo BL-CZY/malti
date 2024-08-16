@@ -25,7 +25,7 @@
             if (!response.ok) {
                 throw new Error(`Response Status: ${response.status}`);
             }
-
+            
             const json = await response.json();
             console.log(json);
             for (let i = 0; i < json.result.length; ++i) {
