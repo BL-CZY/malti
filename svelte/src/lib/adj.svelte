@@ -76,17 +76,42 @@
             <th id="gender">gender</th>
             <th id="phon">phonetic</th>
         </tr>
+
+        {#if word.sg_mf != ""}
+            <tr>
+                <td><p>single</p></td>
+                <td><p>{word.sg_mf}</p></td>
+                <td><p>mf</p></td>
+                <td><p>{word.sg_mf_phon}</p></td>
+            </tr>           
+        {:else}
+            <tr>
+                <td><p>single</p></td>
+                <td><p>{word.sg_f}</p></td>
+                <td><p>f</p></td>
+                <td><p>{word.sg_f_phon}</p></td>
+            </tr>
+
+            <tr>
+                <td><p>single</p></td>
+                <td><p>{word.sg_m}</p></td>
+                <td><p>m</p></td>
+                <td><p>{word.sg_m_phon}</p></td>
+            </tr>
+        {/if}
+
         <tr>
-            <td><p>single</p></td>
-            <td><p>{sg}</p></td>
-            <td><p>{sgGen}</p></td>
-            <td><p>{sgPhon}</p></td>
-        </tr>
+            <td><p>comparative</p></td>
+            <td><p>{word.cmp}</p></td>
+            <td><p>mf</p></td>
+            <td><p>{word.cmp_phon}</p></td>
+        </tr> 
+
         <tr>
-            <td><p>plural</p></td>
-            <td><p>{pl}</p></td>
-            <td><p>{plGen}</p></td>
-            <td><p>{plPhon}</p></td>
+            <td><p>superlative</p></td>
+            <td><p>{word.super}</p></td>
+            <td><p>mf</p></td>
+            <td><p>{word.super_phon}</p></td>
         </tr>
     </table>
 
@@ -94,7 +119,7 @@
 
     <p id="exp-header">Examples:</p>
 
-    {#each examples as exp}
+    {#each word.examples as exp}
         <p class="exp">"{exp}"</p>
     {/each}
  
@@ -111,11 +136,5 @@
 </div>
 
 <script>
-    export let sg;
-    export let sgPhon;
-    export let sgGen;
-    export let pl;
-    export let plPhon;
-    export let plGen;
-    export let examples;
+    export let word;
 </script>

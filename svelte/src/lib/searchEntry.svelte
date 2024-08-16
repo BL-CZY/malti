@@ -36,6 +36,9 @@
     }
 
     #sub-entry5 {
+        max-height: 60px;
+        min-height: 60px;
+        overflow-y: auto;
         flex: 4;
     }
 

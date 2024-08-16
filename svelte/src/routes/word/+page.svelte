@@ -34,6 +34,10 @@
         {#if word.pos == "v"}
             <Verb word={word} />
         {/if}
+
+        {#if word.pos == "adj"}
+            <Adj word={word} />
+        {/if}
     </div>
 </div>
 
@@ -43,6 +47,7 @@
     import GeneralWord from "$lib/generalWord.svelte";
     import Noun from "$lib/noun.svelte";
     import Verb from "$lib/verb.svelte";
+    import Adj from "$lib/adj.svelte";
     let key = $page.url.searchParams.get('key');
 
     $: word = {
