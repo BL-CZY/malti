@@ -29,14 +29,15 @@
     <div id="right" class="sub">
         {#if word.pos == "n"}
             <Noun sg={word.sg} sgPhon={word.sgPhon} sgGen={word.sgGen} pl={word.pl} plPhon={word.plPhon} plGen={word.plGen} examples={word.examples}/>
-        {/if}
 
-        {#if word.pos == "v"}
+        {:else if word.pos == "v"}
             <Verb word={word} />
-        {/if}
 
-        {#if word.pos == "adj"}
+        {:else if word.pos == "adj"}
             <Adj word={word} />
+
+        {:else}
+            <Etc word={word} />
         {/if}
     </div>
 </div>
@@ -48,6 +49,7 @@
     import Noun from "$lib/noun.svelte";
     import Verb from "$lib/verb.svelte";
     import Adj from "$lib/adj.svelte";
+    import Etc from "$lib/extra.svelte"
     let key = $page.url.searchParams.get('key');
 
     $: word = {
@@ -55,7 +57,9 @@
         surfPhon: "",
         root: "",
         surf: "",
-        en: []
+        en: [],
+        examples: [],
+        forms: [],
     };
 
     let setVal = (json) => {

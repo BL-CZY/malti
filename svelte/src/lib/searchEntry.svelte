@@ -63,7 +63,7 @@
         border-radius: 10px;
         padding-top: 10px;
         padding-bottom: 10px;
-        scale: 1;;
+        scale: 1;
     }
 
     button:hover {
