@@ -13,26 +13,21 @@ Well there are some maltese dictionaries around, but they are not very useful/re
     1. No extensive information/context about forms of a word, usage, etc. There are 450(ish) forms for a verb, and to get all of them, one must search them one by one.
     2. One may not get their desierable words as Google Translate always gives same words for same inputs over time.
 <br />
-<br />
 
 2. Ġabra
     1. The algorithm is not super reliable. Instead of sorting the search results by similarity, it sorts the result solely based on how early they found it, which would be bad. For example, if I want to search paper, the actual word karta would appear somewhere below, as it's not in the first several words that appeared.
-<br />
 <br />
 
 3. Glosbe
     1. This dictionary cannot search a word from other forms of a verb. For example, ngħid, naħseb, taħseb, etc, wouldn't work.
 <br />
-<br />
 
 4. Linguee
     1. I tried it, and it can't find karta.
 <br />
-<br />
 
 5. Wiktionary
     1. pretty much as same as Linguee
-<br />
 <br />
 
 Basically, they don't work very well ~~, so I've had enough and decided to build one myself~~.
