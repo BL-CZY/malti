@@ -27,7 +27,6 @@
             }
             
             const json = await response.json();
-            console.log(json);
             for (let i = 0; i < json.result.length; ++i) {
                 searchResults = [...searchResults, json.result[i]];
             }

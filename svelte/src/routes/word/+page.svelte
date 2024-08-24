@@ -77,7 +77,6 @@
 
             const json = await response.json().catch((e) => {console.log("oh no", e)});
             setVal(json);
-            console.log(json);
         } catch(e) {
             console.log(e.message);
         } 
