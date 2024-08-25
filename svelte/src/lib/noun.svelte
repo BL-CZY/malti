@@ -1,8 +1,8 @@
 <style>
     #main {
         border-radius: 10px;
-        min-height: 650px;
-        max-height: 650px;
+        min-height: 750px;
+        max-height: 750px;
         overflow-y: auto;
         border: 1px solid rgb(205, 205, 205);
         background-color: white;
@@ -76,25 +76,37 @@
             <th id="gender">gender</th>
             <th id="phon">phonetic</th>
         </tr>
-        <tr>
-            <td><p>single</p></td>
-            <td><p>{sg}</p></td>
-            <td><p>{sgGen}</p></td>
-            <td><p>{sgPhon}</p></td>
-        </tr>
-        <tr>
-            <td><p>plural</p></td>
-            <td><p>{pl}</p></td>
-            <td><p>{plGen}</p></td>
-            <td><p>{plPhon}</p></td>
-        </tr>
+        {#if word.sg != ""}
+            <tr>
+                <td><p>single</p></td>
+                <td><p>{word.sg}</p></td>
+                <td><p>{word.sgGen}</p></td>
+                <td><p>{word.sgPhon}</p></td>
+            </tr>
+        {/if}
+        {#if word.bipl != ""}
+            <tr>
+                <td><p>bi-plural</p></td>
+                <td><p>{word.bipl}</p></td>
+                <td><p>mf</p></td>
+                <td><p>{word.biplPhon}</p></td>
+            </tr>
+        {/if}
+        {#if word.pl != ""}
+            <tr>
+                <td><p>plural</p></td>
+                <td><p>{word.pl}</p></td>
+                <td><p>mf</p></td>
+                <td><p>{word.plPhon}</p></td>
+            </tr>
+        {/if}
     </table>
 
     <br />
 
     <p id="exp-header">Examples:</p>
 
-    {#each examples as exp}
+    {#each word.examples as exp}
         <p class="exp">"{exp}"</p>
     {/each}
  
@@ -111,11 +123,5 @@
 </div>
 
 <script>
-    export let sg;
-    export let sgPhon;
-    export let sgGen;
-    export let pl;
-    export let plPhon;
-    export let plGen;
-    export let examples;
+    export let word;
 </script>

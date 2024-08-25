@@ -1,8 +1,8 @@
 <style>
     #main {
         border-radius: 10px;
-        min-height: 650px;
-        max-height: 650px;
+        min-height: 750px;
+        max-height: 750px;
         overflow-y: auto;
         border: 1px solid rgb(205, 205, 205);
         background-color: white;

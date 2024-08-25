@@ -19,28 +19,34 @@
     }
 </style>
 
-<div id="main">
-    <div id="left" class="sub">
-        <GeneralWord word={word.surf} pos={word.pos} root={word.root} en={word.en} phon={word.surfPhon}/>
-    </div>
-
-    <div id="mid"></div>
+{#if finished}
+    <div id="main">
+        <div id="left" class="sub">
+            <GeneralWord word={word.surf} pos={word.pos} root={word.root} en={word.en} phon={word.surfPhon}/>
+        </div>
     
-    <div id="right" class="sub">
-        {#if word.pos == "n"}
-            <Noun sg={word.sg} sgPhon={word.sgPhon} sgGen={word.sgGen} pl={word.pl} plPhon={word.plPhon} plGen={word.plGen} examples={word.examples}/>
-
-        {:else if word.pos == "v"}
-            <Verb word={word} />
-
-        {:else if word.pos == "adj"}
-            <Adj word={word} />
-
-        {:else}
-            <Etc word={word} />
-        {/if}
+        <div id="mid"></div>
+        
+        <div id="right" class="sub">
+            {#if word.pos == "n"}
+                <Noun word={word} />
+    
+            {:else if word.pos == "v"}
+                <Verb word={word} />
+    
+            {:else if word.pos == "adj" || word.pos == "adv"}
+                <Adj word={word} />
+    
+            {:else}
+                <Etc word={word} />
+            {/if}
+        </div>
     </div>
-</div>
+{:else}
+    <div>
+        <Loader />
+    </div>
+{/if}
 
 <script>
     import { page } from "$app/stores";
@@ -49,7 +55,9 @@
     import Noun from "$lib/noun.svelte";
     import Verb from "$lib/verb.svelte";
     import Adj from "$lib/adj.svelte";
-    import Etc from "$lib/extra.svelte"
+    import Etc from "$lib/extra.svelte";
+    import Loader from "$lib/load.svelte";
+    let finished = false;
     let key = $page.url.searchParams.get('key');
 
     $: word = {
@@ -67,6 +75,7 @@
     }
 
     async function getWord() {
+        finished = false;
         const url = `http://localhost:3000/api/fetch?key=${key}`;
 
         try {
@@ -77,6 +86,7 @@
 
             const json = await response.json().catch((e) => {console.log("oh no", e)});
             setVal(json);
+            finished = true;
         } catch(e) {
             console.log(e.message);
         } 

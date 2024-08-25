@@ -11,7 +11,8 @@
         border-radius: 10px;
         text-align: center;
         border: 1px solid rgb(205, 205, 205);
-        min-height: 650px;
+        min-height: 750px;
+        max-height: 750px;
         transition: all 0.5s;
     }
 

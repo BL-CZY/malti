@@ -1,7 +1,7 @@
 <style>
     #main {
         border-radius: 10px;
-        min-height: 650px;
+        min-height: 750px;
         border: 1px solid rgb(205, 205, 205);
         background-color: white;
         transition: all 0.5s;
@@ -11,7 +11,7 @@
     #left {
         flex: 10;
         overflow-y: auto;
-        max-height: 650px;
+        max-height: 750px;
     }
 
     #mid {
@@ -21,7 +21,7 @@
     #right {
         flex: 2;
         overflow-y: auto;
-        max-height: 650px;
+        max-height: 750px;
         text-align: left;
     }
 

@@ -66,7 +66,6 @@
     #search-bar:focus {
         outline: none;
         border-color: black;
-        width: 70%;
     }
 
     button {
@@ -127,8 +126,56 @@
             display: none !important;
         }
     }
-</style>
 
+    .radio-inputs {
+        position: relative;
+        display: inline-flex;
+        flex-wrap: wrap;
+        border-radius: 0.5rem;
+        background-color: #EEE;
+        box-sizing: border-box;
+        box-shadow: 0 0 0px 1px rgba(0, 0, 0, 0.06);
+        padding: 1px;
+    }
+
+    .radio {
+        padding-left: 10px;
+        padding-right: 10px;
+        font-size: 13px;
+        color: grey;
+    }
+    
+    .radio-inputs .radio {
+        flex: 1 1 auto;
+        text-align: center;
+    }
+    
+    .radio-inputs .radio input {
+        display: none;
+    }
+    
+    .radio-inputs .radio .name {
+        display: flex;
+        cursor: pointer;
+        align-items: center;
+        justify-content: center;
+        border-radius: 0.5rem;
+        border: none;
+        padding: 1px;
+        color: rgba(51, 65, 85, 1);
+        transition: all .15s ease-in-out;
+    }
+    
+    .radio-inputs .radio input:checked + .name {
+        background-color: #fff;
+        font-weight: 600;
+    }
+
+    .br {
+        height: 85px;
+    }
+</style>
+    
 <nav id="topnav">
     <ul>
         <div id="left">
@@ -141,9 +188,23 @@
                     <button id="special-char-btn2" class="special-char-btn" on:click={() => appendSpecialLetter("ġ")}>ġ</button>
                     <button id="special-char-btn3" class="special-char-btn" on:click={() => appendSpecialLetter("ħ")}>ħ</button>
                     <button id="special-char-btn4" class="special-char-btn" on:click={() => appendSpecialLetter("ż")}>ż</button>
-                    <form method="get" action="/search" on:submit={handleSubmit}>
-                        <button id="search-btn">search</button>
+                    <form method="get" action="/search" on:submit={handleSubmit}> 
                         <input id="search-bar" placeholder="  search..." bind:value={inputVal}>
+                        <button id="search-btn">search</button>
+                        <div class="radio-inputs">
+                            <label class="radio">
+                                <input type="radio" name="radio" checked="" on:change={() => mode = "m"}>
+                                <span class="name">Maltese</span>
+                            </label>
+                            <label class="radio">
+                                <input type="radio" name="radio" on:change={() => mode = "e"}>
+                                <span class="name">English</span>
+                            </label> 
+                            <label class="radio">
+                                <input type="radio" name="radio" on:change={() => mode = "b"}>
+                                <span class="name">Both</span>
+                            </label>
+                        </div>
                     </form>
                 </div>
             </li>
@@ -159,15 +220,13 @@
     </ul>
 </nav>
 
-<br />
-<br />
-<br />
-<br />
+<div class="br"></div>
 
 <script>
     import { goto } from '$app/navigation';
 
     let inputVal = "";
+    let mode = "b";
 
     let appendSpecialLetter = (letter) => {
         inputVal += letter;
@@ -175,7 +234,7 @@
 
     async function handleSubmit(event) {
         event.preventDefault();
-        await goto(`/search?query=${inputVal}&skip=0&limit=10`);
+        await goto(`/search?query=${inputVal}&skip=0&limit=10&mode=${mode}`);
         window.location.reload();
     }
 </script>

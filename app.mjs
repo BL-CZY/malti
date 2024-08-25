@@ -17,6 +17,7 @@ app.listen(port, () => {
 
 app.get("/api/search", (req, res) => {
     let keyword = req.query.keyword;
+    let mode = req.query.mode;
     let skip = parseInt(req.query.skip);
     let limit = parseInt(req.query.limit);
     let maxDis = parseInt(req.query.maxDis);
@@ -24,6 +25,10 @@ app.get("/api/search", (req, res) => {
     if (!keyword) {
         res.status(404).write("invalid keyword");
         return;
+    }
+
+    if (!mode) {
+        mode = "b";
     }
 
     if (isNaN(skip)) {
@@ -38,7 +43,7 @@ app.get("/api/search", (req, res) => {
         maxDis = 3;
     } 
 
-    res.write(search(keyword, skip, limit, maxDis));
+    res.write(search(keyword, skip, limit, maxDis, mode));
 
     res.end();
 });
