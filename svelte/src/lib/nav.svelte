@@ -115,7 +115,7 @@
         display: inline;
     }
 
-    @media only screen and (max-width: 550px) {
+    @media only screen and (max-width: 600px) {
         .special-char-btn {
             display: none !important;
         }
@@ -174,6 +174,13 @@
     .br {
         height: 85px;
     }
+
+    @media only screen and (max-width: 1100px) {
+        .radio-inputs {
+            display: none;
+        }
+    }
+
 </style>
     
 <nav id="topnav">

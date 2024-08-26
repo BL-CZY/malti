@@ -17,6 +17,13 @@
     div#mid {
         flex: 1;
     }
+
+    div#loader {
+        margin: auto;
+        position: fixed;
+        top: 30%;
+        left: 49%;
+    }
 </style>
 
 {#if finished}
@@ -28,22 +35,17 @@
         <div id="mid"></div>
         
         <div id="right" class="sub">
-            {#if word.pos == "n"}
-                <Noun word={word} />
-    
-            {:else if word.pos == "v"}
+            {#if word.pos == "v"}
                 <Verb word={word} />
-    
-            {:else if word.pos == "adj" || word.pos == "adv"}
-                <Adj word={word} />
-    
+            {:else if word.pos == "n" || word.pos == "adj" || word.pos == "adv"}
+                <WordInfo word={word} extra={false} />
             {:else}
-                <Etc word={word} />
+                <WordInfo word={word} extra={true} />
             {/if}
         </div>
     </div>
 {:else}
-    <div>
+    <div id="loader">
         <Loader />
     </div>
 {/if}
@@ -52,11 +54,9 @@
     import { page } from "$app/stores";
     import { onMount } from "svelte";
     import GeneralWord from "$lib/generalWord.svelte";
-    import Noun from "$lib/noun.svelte";
     import Verb from "$lib/verb.svelte";
-    import Adj from "$lib/adj.svelte";
-    import Etc from "$lib/extra.svelte";
     import Loader from "$lib/load.svelte";
+    import WordInfo from "$lib/wordInfo.svelte";
     let finished = false;
     let key = $page.url.searchParams.get('key');
 

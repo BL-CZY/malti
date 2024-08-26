@@ -89,7 +89,7 @@
         <ul id="main">
             <li id = "sub-entry1" class="sub-entry">{index}.</li>
             <li id = "sub-entry2" class="sub-entry"><a href={url}>{word}</a></li>
-            <li id="sub-entry3" class="sub-entry">{pos}</li>
+            <li id="sub-entry3" class="sub-entry">{pos}.</li>
             <li id = "sub-entry4" class="sub-entry">matched: {matched}</li>
             <li id = "sub-entry5" class="sub-entry">
                 <ul>
