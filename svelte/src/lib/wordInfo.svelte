@@ -101,7 +101,13 @@
     {#each word.examples as exp}
         <p class="exp">"{exp}"</p>
     {/each}
- 
+
+    <p id="exp-header">Contributors:</p>
+    
+    {#each word.contributors as cont}
+        <p class="exp">{cont}</p>
+    {/each}
+    
     <br />
     <br />
     <br />

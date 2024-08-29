@@ -67,6 +67,7 @@
         surf: "",
         en: [],
         examples: [],
+        contributors: [],
         forms: [],
     };
 
@@ -85,6 +86,7 @@
             }
 
             const json = await response.json().catch((e) => {console.log("oh no", e)});
+            console.log(json.contributers);
             setVal(json);
             finished = true;
         } catch(e) {

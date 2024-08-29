@@ -200,15 +200,15 @@
                         <button id="search-btn">search</button>
                         <div class="radio-inputs">
                             <label class="radio">
-                                <input type="radio" name="radio" checked="" on:change={() => mode = "m"}>
+                                <input id="m" type="radio" name="radio" checked="" on:change={() => mode = "m"}>
                                 <span class="name">Maltese</span>
                             </label>
                             <label class="radio">
-                                <input type="radio" name="radio" on:change={() => mode = "e"}>
+                                <input id="e" type="radio" name="radio" on:change={() => mode = "e"}>
                                 <span class="name">English</span>
                             </label> 
                             <label class="radio">
-                                <input type="radio" name="radio" on:change={() => mode = "b"}>
+                                <input id="b" type="radio" name="radio" on:change={() => mode = "b"}>
                                 <span class="name">Both</span>
                             </label>
                         </div>
@@ -231,6 +231,7 @@
 
 <script>
     import { goto } from '$app/navigation';
+    import { onMount } from 'svelte';
 
     let inputVal = "";
     let mode = "b";
@@ -244,5 +245,11 @@
         await goto(`/search?query=${inputVal}&skip=0&limit=10&mode=${mode}`);
         window.location.reload();
     }
+
+    onMount(() => {
+        document.getElementById("e").checked = false;
+        document.getElementById("m").checked = false;
+        document.getElementById("b").checked = false;
+    });
 </script>
 
