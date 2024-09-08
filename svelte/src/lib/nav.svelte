@@ -1,4 +1,10 @@
 <style>
+    @import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&family=Playwrite+CU:wght@100..400&display=swap');
+
+    * {
+        user-select: none;
+    }
+
     #topnav {
         background-color: rgb(240, 240, 240);
         border-bottom: 1px solid rgb(105, 105, 105);
@@ -37,6 +43,8 @@
         flex: 1;
         padding-top: 6px;
         position: relative;
+        font-family: "Josefin Sans", "sans-serif";
+        font-size: 17px;
     }
 
     #search-btn {
@@ -93,6 +101,7 @@
     }
 
     a {
+        font-family: "Josefin Sans", "sans-serif";
         color: rgb(105, 105, 105);
         transition: all 0.5s;
     }
@@ -136,6 +145,7 @@
         box-sizing: border-box;
         box-shadow: 0 0 0px 1px rgba(0, 0, 0, 0.06);
         padding: 1px;
+        font-family: "Josefin Sans", "sans-serif";
     }
 
     .radio {
@@ -187,8 +197,9 @@
     <ul>
         <div id="left">
             <li id="icon">
-                <a href="/">dictionary</a>
+                <a href="/">MaltiLex</a>
             </li>
+            {#if !noSearch}
             <li id="search">
                 <div id="search-wrapper">
                     <button id="special-char-btn1" class="special-char-btn" on:click={() => appendSpecialLetter("ċ")}>ċ</button>
@@ -215,6 +226,7 @@
                     </form>
                 </div>
             </li>
+            {/if}
         </div>
         <div id="right">
             <li id="about">
@@ -235,6 +247,7 @@
 
     let inputVal = "";
     let mode = "b";
+    export let noSearch;
 
     let appendSpecialLetter = (letter) => {
         inputVal += letter;
@@ -247,9 +260,11 @@
     }
 
     onMount(() => {
-        document.getElementById("e").checked = false;
-        document.getElementById("m").checked = false;
-        document.getElementById("b").checked = false;
+        if (!noSearch) {
+            document.getElementById("e").checked = false;
+            document.getElementById("m").checked = false;
+            document.getElementById("b").checked = false;
+        }
     });
 </script>
 

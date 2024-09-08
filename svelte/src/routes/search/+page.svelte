@@ -24,6 +24,11 @@
     let err = false;
 
     async function getData() {
+        if (qStr == "") {
+            finished = true;
+            return;
+        }
+
         const url = `http://localhost:3000/api/search?keyword=${qStr}&skip=${skip}&limit=${limit}&mode=${mode}`;
         finished = false;
 
@@ -33,20 +38,41 @@
                 err = true;
                 throw new Error(`Response Status: ${response.status}`);
             }
-            
+    
             const json = await response.json();
             for (let i = 0; i < json.result.length; ++i) {
                 searchResults = [...searchResults, json.result[i]];
             }
             finished = true;
+            skip += 10;
         } catch(e) {
             console.log(e.message);
         }
     }
-    
-    onMount(() => {
-        getData();
-    });
+
+    let loadingRef;
+   
+    onMount(async function() {
+        await getData();
+
+        if (!loadingRef) {
+            return;
+        }
+
+        const observer = new IntersectionObserver((entries) => {
+            if (entries[0].isIntersecting) {
+                if (searchResults.length % 10 != 0 || skip >= 40) {
+                    return;
+                }
+                
+                getData();
+            }
+        })
+
+        observer.observe(loadingRef)
+    }, {
+            threshold: 0,
+        });
 </script>
 
 <style>
@@ -54,23 +80,50 @@
         width: 87%;
     }
 
-    div {
-        margin: auto;
-        position: fixed;
-        top: 30%;
-        left: 49%;
+    #loader {
+        text-align: center;
+    }
+
+    #uh {
+        height: 1px;
+        width: 100%;
+    }
+
+    #load-more {
+        text-align: center;
+    }
+
+    #load-more-btn {
+        padding: 10px;
+        margin-bottom: 10px;
+        border: 2px solid rgb(205, 205, 205);
+        border-radius: 10px;
+        transition: all 0.5s;
+    }
+
+    #load-more-btn:hover {
+        border-color: black;
     }
 </style>
 
-{#if finished}
-    <hr />
-    {#each searchResults as word, index}
-        <SearchEntry index={index + 1} word={word.word} pos={word.pos} en={word.en} matched={word.matched} url={`/word?key=${word.key}`}/>    
-    {/each}
+<hr />
+
+{#each searchResults as word, index}
+    <SearchEntry index={index + 1} word={word.word} pos={word.pos} en={word.en} matched={word.matched} url={`/word?key=${word.key}`}/>    
+{/each}
+
+<div id="uh" bind:this={loadingRef}></div>
+
+{#if !finished}
+    <div id="loader">
+        <Loader />
+    </div>
 {:else if err}
     <Err />
-{:else}
-    <div>
-        <Loader />
+{/if}
+
+{#if skip >= 40}
+    <div id="load-more">
+        <button id="load-more-btn" on:click={() => getData()}>Load More</button>
     </div>
 {/if}

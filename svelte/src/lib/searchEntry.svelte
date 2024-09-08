@@ -67,10 +67,8 @@
     }
 
     button:hover {
-        min-height: 140px;
         border-color: black;
         background-color: rgb(205, 205, 205);
-        width: 85%;
         scale: 1;
     }
 

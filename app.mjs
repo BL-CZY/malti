@@ -2,11 +2,14 @@
 
 import express from "express";
 import { handler } from "./svelte/build/handler.js";
-import { getWord, search } from "@jg-tpl/malti_search";
+import { getWord, search, init } from "@jg-tpl/malti_search";
 import cors from 'cors';
 
 const app = express();
 const port = 3000;
+
+await init();
+console.log("Init succeeded")
 
 app.use(express.urlencoded({ extended: true }));
 app.use(cors());
@@ -15,7 +18,7 @@ app.listen(port, () => {
     console.log(`app running on port ${port}`);
 });
 
-app.get("/api/search", (req, res) => {
+app.get("/api/search", async (req, res) => {
     let keyword = req.query.keyword;
     let mode = req.query.mode;
     let skip = parseInt(req.query.skip);
@@ -42,13 +45,14 @@ app.get("/api/search", (req, res) => {
     if (isNaN(maxDis)) {
         maxDis = 3;
     } 
-
-    res.write(search(keyword, skip, limit, maxDis, mode));
+    
+    let result = await search(keyword, skip, limit, maxDis, mode);
+    res.write(result);
 
     res.end();
 });
 
-app.get("/api/fetch", (req, res) => {
+app.get("/api/fetch", async (req, res) => {
     let key = req.query.key;
     if (!key) {
         res.status(404).write("invalid keyword");
@@ -56,7 +60,9 @@ app.get("/api/fetch", (req, res) => {
         return;
     }
 
-    res.write(getWord(key));
+    let result = await getWord(key);
+
+    res.write(result);
     
     res.end();
 })
