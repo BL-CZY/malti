@@ -46,6 +46,7 @@ app.get("/api/search", async (req, res) => {
         maxDis = 3;
     } 
     
+
     let result = await search(keyword, skip, limit, maxDis, mode);
     res.write(result);
 
