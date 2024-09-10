@@ -105,7 +105,7 @@
     <p id="exp-header">Contributors:</p>
     
     {#each word.contributors as cont}
-        <p class="exp">{cont}</p>
+        <a href="/about#reference" class="exp">{cont}</a><br />
     {/each}
     
     <br />

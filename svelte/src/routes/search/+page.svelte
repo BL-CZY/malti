@@ -29,7 +29,7 @@
             return;
         }
 
-        const url = `http://localhost:3000/api/search?keyword=${qStr}&skip=${skip}&limit=${limit}&mode=${mode}`;
+        const url = `http://localhost:3000/api/search?keyword=${qStr}&skip=${skip}&limit=${limit}&mode=${mode}&maxDis=5`;
         finished = false;
 
         try {

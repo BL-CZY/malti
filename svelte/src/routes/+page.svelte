@@ -154,7 +154,7 @@
 </style>
 
 <h1 id="title">MaltiLex</h1>
-<p id="subtitle">A Maltese dictionary with enhanced algorithm, inspired by Ġabra</p>
+<p id="subtitle">A Maltese dictionary with enhanced algorithm, inspired by <a href="/about#reference">Ġabra</a></p>
 
 <div id="search">
     <div id="search-wrapper">
