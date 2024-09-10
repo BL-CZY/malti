@@ -77,7 +77,7 @@
 
     async function getWord() {
         finished = false;
-        const url = `http://localhost:3000/api/fetch?key=${key}`;
+        const url = `/api/fetch?key=${key}`;
 
         try {
             const response = await fetch(url);
