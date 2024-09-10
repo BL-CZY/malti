@@ -52,6 +52,7 @@
         position: relative;
         display: inline-block;
         border: none;
+        margin-top: 15px;
     }
 
     .drop-btn {
@@ -151,10 +152,21 @@
         text-align: center;
         margin: auto;
     }
+
+    .block {
+        border: 1px solid grey;
+        display: inline;
+        padding-top: 10px;
+        padding-bottom: 10px;
+        padding-left: 10px;
+        padding-right: 10px;
+        border-radius: 10px;
+    }
 </style>
 
 <div id="main">
     <div id="top">
+        <div class="block">
         <div class="dropdown">
             <div class="drop">
                 <button class="drop-btn">tense</button>
@@ -167,6 +179,8 @@
             </div>
             <p class="top-text">{tense}</p>
         </div>
+        </div>
+        <div class="block">
         <div class="dropdown">
             <div class="drop">
                 <button class="drop-btn">sub</button>
@@ -203,6 +217,8 @@
             </div>
             <p class="top-text">{sub_gen}</p>
         </div>
+        </div>
+        <div class="block">
         <div class="dropdown">
             <div class="drop">
                 <button class="drop-btn">dir_obj</button>
@@ -239,6 +255,8 @@
             </div>
             <p class="top-text">{dir_obj_gen}</p>
         </div>
+        </div>
+        <div class="block">
         <div class="dropdown">
             <div class="drop">
                 <button class="drop-btn">ind_obj</button>
@@ -275,6 +293,8 @@
             </div>
             <p class="top-text">{ind_obj_gen}</p>
         </div>
+        </div>
+        <div class="block">
         <div class="dropdown">
             <div class="drop">
                 <button class="drop-btn">polarity</button>
@@ -286,6 +306,7 @@
                 {/each}
             </div>
             <p class="top-text">{pol}</p>
+        </div>
         </div>
     </div>
 

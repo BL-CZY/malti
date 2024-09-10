@@ -11,7 +11,7 @@
     }
 
     div#right {
-        flex: 60;
+        flex: 80;
     }
 
     div#mid {
