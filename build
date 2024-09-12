@@ -3,4 +3,4 @@ npm run build
 cd ..
 npm update
 cd node_modules/@jg-tpll/malti_search
-./build
+napi build --platform --release
