@@ -32,7 +32,7 @@
   },
   "packageManager": "yarn@4.3.1",
   "dependencies": {
-    "@jg-tpl/malti_search": "file:../malti_search",
+    "@jg-tpll/malti_search": "^0.0.1",
     "cors": "^2.8.5",
     "express": "^4.19.2"
   }

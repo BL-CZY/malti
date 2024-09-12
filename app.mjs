@@ -2,7 +2,7 @@
 
 import express from "express";
 import { handler } from "./svelte/build/handler.js";
-import { getWord, search, init } from "@jg-tpl/malti_search";
+import { getWord, search, init } from "@jg-tpll/malti_search";
 import cors from 'cors';
 
 const app = express();
