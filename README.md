@@ -15,6 +15,9 @@ Words contains documents for words, and one document would contain all the infor
 
 3. The algorithm for similarity is called [Levenshtein Distance](https://en.wikipedia.org/wiki/Levenshtein_distance), and results are **sorted** based on the distance, which, as an entire process, has a runtime of O(N). a.k.a. if the amount of tokens doubles, the time cost for searching doubles.
 
+4. I used [Napi-rs](https://napi.rs/) to write the algorithms in rust, and this is the repo: <br />
+https://github.com/BL-CZY/malti_search
+
 ## 3. How to add words to the database?
 
 #### Clone this github repo: https://github.com/BL-CZY/malti_db, and there would specifications
