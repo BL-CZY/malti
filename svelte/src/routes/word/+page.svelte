@@ -26,7 +26,7 @@
     }
 </style>
 
-{#if finished}
+{#if finished && !err}
     <div id="main">
         <div id="left" class="sub">
             <GeneralWord word={word.surf} pos={word.pos} root={word.root} en={word.en} phon={word.surfPhon}/>
@@ -44,6 +44,8 @@
             {/if}
         </div>
     </div>
+{:else if err}
+    <Err />
 {:else}
     <div id="loader">
         <Loader />
@@ -57,7 +59,9 @@
     import Verb from "$lib/verb.svelte";
     import Loader from "$lib/load.svelte";
     import WordInfo from "$lib/wordInfo.svelte";
+    import Err from "$lib/err.svelte"
     let finished = false;
+    let err = false;
     let key = $page.url.searchParams.get('key');
 
     $: word = {
@@ -77,11 +81,13 @@
 
     async function getWord() {
         finished = false;
+        err = false;
         const url = `/api/fetch?key=${key}`;
 
         try {
             const response = await fetch(url);
             if (!response.ok) {
+                err = true;
                 throw new Error(`Response Status: ${response.status}`);
             }
 

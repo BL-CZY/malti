@@ -114,11 +114,13 @@
 
 <div id="uh" bind:this={loadingRef}></div>
 
-{#if !finished}
+{#if !finished && !err}
     <div id="loader">
         <Loader />
     </div>
-{:else if err}
+{/if}
+
+{#if err}
     <Err />
 {/if}
 

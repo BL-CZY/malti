@@ -6,7 +6,7 @@ import { getWord, search, init } from "@jg-tpll/malti_search";
 import cors from 'cors';
 
 const app = express();
-const port = 3000;
+const port = 8080;
 
 await init();
 console.log("Init succeeded")
@@ -14,7 +14,7 @@ console.log("Init succeeded")
 app.use(express.urlencoded({ extended: true }));
 app.use(cors());
 
-app.listen(port, () => {
+app.listen(port, "0.0.0.0", () => {
     console.log(`app running on port ${port}`);
 });
 

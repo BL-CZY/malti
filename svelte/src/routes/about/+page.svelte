@@ -9,20 +9,9 @@
         padding: 20px;
     }
 
-    .citation {
-        width: 90%;
-        margin: auto;
-        font-style: italic;
-        border: none;
-        background-color: rgb(235, 235, 235);
-        padding: 10px;
-        border-radius: 10px;
-    }
-
     p, a {
         font-size: 20px;
         font-weight: 400;
-        font-family: "Josefin Sans", "sans-serif";
     }
 
     #def-list {
@@ -138,40 +127,4 @@
         </ul>
     </div>
     <hr />
-    <h1 id="reference">Reference</h1>
-    <hr />
-    <h3 id="gabra">Ġabra:</h3>
-    <p>
-        <a href="https://mlrs.research.um.edu.mt/resources/gabra/">Ġabra</a> has the database that this dictionary is based off.
-        It provide extensive information about words in Maltese. 
-        <br />
-        Citation:
-    </p>
-    <div class="citation">
-        John J. Camilleri. "A Computational Grammar and Lexicon for Maltese", M.Sc. Thesis. Chalmers University of Technology. Gothenburg, Sweden, September 2013. 
-    </div>
-    <p>The Ġabra dictionary's database is also based on some other databases. As a result, they are listed here as well:</p>
-    {#each sources as source}
-        <div class="citation">
-            {source}
-        </div>
-        <br />
-    {/each}
-    <hr />
 </div>
-
-<script>
-    $: sources = [
-        "Spagnol2011, A Tale of Two Morphologies. Verb structure and argument alternations in Maltese, Michael Spagnol, 2011, Germany: University of Konstanz dissertation",
-        "Ellul2013, Deverbal nouns in Maltese, Leanne Ellul, 2013, Malta: University of Malta dissertation",
-        "Mayer2013, Fixing the broken plural in Maltese, Thomas Mayer, Michael Spagnol & Florian Schönhuber, 2013, (in print)",
-        "Falzon2013, Basic English-Maltese Dictionary, Grazio Falzon, 2013, http://metashare.metanet4u.eu/repository/browse/basic-english-maltese-dictionary/13fc5802abc511e1a404080027e73ea2a210be7dd5c44a3b9dd47afb4b2a34ef/",
-        "Camilleri2013, A computational grammar and lexicon for Maltese, John J. Camilleri, 2013, Sweden: Chalmers University of Technology, M.Sc. thesis",
-        "UserFeedback, Anonymous feedback suggestions from users, Various, 2014",
-        "KelmaKelma, Kelma Kelma Facebook Page, Various, 2014, https://www.facebook.com/kelmakelma.mt",
-        "KelmetilMalti, Kelmet il-Malti Facebook Group, Various, 2014, https://www.facebook.com/groups/246657308743181/",
-        "Apertium2014, Apertium: A free/open-source machine translation platform, Apertium, 2014, http://www.apertium.org/",
-        "DM2015, Dizzjunarju Malti, Various, 2015, Contributions by research assistants funded by the DM project",
-        "IATE2016, IATE: The EU's Multilingual termbase, Inter-Active Terminology for Europe (IATE) Database, 2016, Download IATE, European Union, 2016"
-    ];
-</script>

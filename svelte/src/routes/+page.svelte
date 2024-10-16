@@ -117,44 +117,24 @@
     #subtitle {
         font-family: "Josefin Sans", "sans-serif";
         text-align: center;
-        margin-bottom: 30px;
-    }
-
-    #footer {
-        text-align: center;
-        font-size: 12px;
-        color: grey;
-        padding: 0;
-    }
-
-    footer {
-        position: absolute;
-        bottom: 0;
-        left: 50%;
-        transform: translateX(-50%);
-    }
-
-    .flag {
-        font-size: 75px;
-        display: inline;
-        cursor: default;
-    }
-
-    #flags {
-        z-index: -1;
-        position: absolute;
-        left: 50%;
-        transform: translateX(-50%);
-        opacity: 0.5;
+        margin-bottom: 10px;
     }
 
     * {
         user-select: none;
     }
+
+    #main {
+        width: 100%;
+        margin: auto;
+        border-radius: 10px;
+    }
 </style>
 
+<div id="main">
+
 <h1 id="title">MaltiLex</h1>
-<p id="subtitle">A Maltese dictionary with enhanced algorithm, inspired by <a href="/about#reference">Ġabra</a></p>
+<p id="subtitle">A Maltese dictionary</p>
 
 <div id="search">
     <div id="search-wrapper">
@@ -183,13 +163,7 @@
     </div>
 </div>
 
-<div id="flags">
-    <p class="flag">🇲🇹</p>
-    <p class="flag">🇬🇧</p>
 </div>
-
-<footer>
-<p id="footer">Version v0.1.0, last updated 8/9/2024</p></footer>
 
 <script>
     import { goto } from '$app/navigation';
