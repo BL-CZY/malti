@@ -1,5 +1,122 @@
+<script>
+    import { goto } from "$app/navigation";
+    import { onMount } from "svelte";
+
+    let inputVal = "";
+    let mode = "b";
+    export let noSearch;
+
+    let appendSpecialLetter = (letter) => {
+        inputVal += letter;
+    };
+
+    async function handleSubmit(event) {
+        event.preventDefault();
+        await goto(`/search?query=${inputVal}&skip=0&limit=10&mode=${mode}`);
+        window.location.reload();
+    }
+
+    onMount(() => {
+        if (!noSearch) {
+            document.getElementById("e").checked = false;
+            document.getElementById("m").checked = false;
+            document.getElementById("b").checked = false;
+        }
+    });
+</script>
+
+<nav id="topnav">
+    <ul>
+        <div id="left">
+            <li id="icon">
+                <a href="/">MaltiLex</a>
+            </li>
+            {#if !noSearch}
+                <li id="search">
+                    <div id="search-wrapper">
+                        <button
+                            id="special-char-btn1"
+                            class="special-char-btn"
+                            on:click={() => appendSpecialLetter("ċ")}>ċ</button
+                        >
+                        <button
+                            id="special-char-btn2"
+                            class="special-char-btn"
+                            on:click={() => appendSpecialLetter("ġ")}>ġ</button
+                        >
+                        <button
+                            id="special-char-btn3"
+                            class="special-char-btn"
+                            on:click={() => appendSpecialLetter("ħ")}>ħ</button
+                        >
+                        <button
+                            id="special-char-btn4"
+                            class="special-char-btn"
+                            on:click={() => appendSpecialLetter("ż")}>ż</button
+                        >
+                        <form
+                            method="get"
+                            action="/search"
+                            on:submit={handleSubmit}
+                        >
+                            <input
+                                id="search-bar"
+                                placeholder="  try search ktieb, paper, ..."
+                                bind:value={inputVal}
+                            />
+                            <button id="search-btn">search</button>
+                            <div class="radio-inputs">
+                                <label class="radio">
+                                    <input
+                                        id="m"
+                                        type="radio"
+                                        name="radio"
+                                        checked=""
+                                        on:change={() => (mode = "m")}
+                                    />
+                                    <span class="name">Maltese</span>
+                                </label>
+                                <label class="radio">
+                                    <input
+                                        id="e"
+                                        type="radio"
+                                        name="radio"
+                                        on:change={() => (mode = "e")}
+                                    />
+                                    <span class="name">English</span>
+                                </label>
+                                <label class="radio">
+                                    <input
+                                        id="b"
+                                        type="radio"
+                                        name="radio"
+                                        on:change={() => (mode = "b")}
+                                    />
+                                    <span class="name">Both</span>
+                                </label>
+                            </div>
+                        </form>
+                    </div>
+                </li>
+            {/if}
+        </div>
+        <div id="right">
+            <li id="about">
+                <a href="/about" id="about-link">about</a>
+            </li>
+            <li id="source">
+                <a href="https://github.com/BL-CZY/malti" id="source-link"
+                    >source</a
+                >
+            </li>
+        </div>
+    </ul>
+</nav>
+
+<div class="br"></div>
+
 <style>
-    @import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&family=Playwrite+CU:wght@100..400&display=swap');
+    @import url("https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&family=Playwrite+CU:wght@100..400&display=swap");
 
     * {
         user-select: none;
@@ -8,7 +125,7 @@
     #topnav {
         background-color: rgb(240, 240, 240);
         border-bottom: 1px solid rgb(105, 105, 105);
-        border-top: 3px solid rgb(255,82,82);
+        border-top: 3px solid rgb(255, 82, 82);
         padding: 2px 70px 2px 70px;
         z-index: 2;
         min-width: 100%;
@@ -27,7 +144,7 @@
         display: flex;
         justify-content: space-between;
     }
-    
+
     #search {
         display: inline;
         flex: 5;
@@ -48,7 +165,7 @@
     }
 
     #search-btn {
-        border: 1px solid rgb(194, 194, 194);;
+        border: 1px solid rgb(194, 194, 194);
     }
 
     #search-btn:hover {
@@ -88,7 +205,7 @@
         background-color: white;
         color: black;
     }
-    
+
     ul {
         display: flex;
         padding: 0;
@@ -141,7 +258,7 @@
         display: inline-flex;
         flex-wrap: wrap;
         border-radius: 0.5rem;
-        background-color: #EEE;
+        background-color: #eee;
         box-sizing: border-box;
         box-shadow: 0 0 0px 1px rgba(0, 0, 0, 0.06);
         padding: 1px;
@@ -154,16 +271,16 @@
         font-size: 13px;
         color: grey;
     }
-    
+
     .radio-inputs .radio {
         flex: 1 1 auto;
         text-align: center;
     }
-    
+
     .radio-inputs .radio input {
         display: none;
     }
-    
+
     .radio-inputs .radio .name {
         display: flex;
         cursor: pointer;
@@ -173,9 +290,9 @@
         border: none;
         padding: 1px;
         color: rgba(51, 65, 85, 1);
-        transition: all .15s ease-in-out;
+        transition: all 0.15s ease-in-out;
     }
-    
+
     .radio-inputs .radio input:checked + .name {
         background-color: #fff;
         font-weight: 600;
@@ -190,81 +307,4 @@
             display: none;
         }
     }
-
 </style>
-    
-<nav id="topnav">
-    <ul>
-        <div id="left">
-            <li id="icon">
-                <a href="/">MaltiLex</a>
-            </li>
-            {#if !noSearch}
-            <li id="search">
-                <div id="search-wrapper">
-                    <button id="special-char-btn1" class="special-char-btn" on:click={() => appendSpecialLetter("ċ")}>ċ</button>
-                    <button id="special-char-btn2" class="special-char-btn" on:click={() => appendSpecialLetter("ġ")}>ġ</button>
-                    <button id="special-char-btn3" class="special-char-btn" on:click={() => appendSpecialLetter("ħ")}>ħ</button>
-                    <button id="special-char-btn4" class="special-char-btn" on:click={() => appendSpecialLetter("ż")}>ż</button>
-                    <form method="get" action="/search" on:submit={handleSubmit}> 
-                        <input id="search-bar" placeholder="  search..." bind:value={inputVal}>
-                        <button id="search-btn">search</button>
-                        <div class="radio-inputs">
-                            <label class="radio">
-                                <input id="m" type="radio" name="radio" checked="" on:change={() => mode = "m"}>
-                                <span class="name">Maltese</span>
-                            </label>
-                            <label class="radio">
-                                <input id="e" type="radio" name="radio" on:change={() => mode = "e"}>
-                                <span class="name">English</span>
-                            </label> 
-                            <label class="radio">
-                                <input id="b" type="radio" name="radio" on:change={() => mode = "b"}>
-                                <span class="name">Both</span>
-                            </label>
-                        </div>
-                    </form>
-                </div>
-            </li>
-            {/if}
-        </div>
-        <div id="right">
-            <li id="about">
-                <a href="/about" id="about-link">about</a>
-            </li>
-            <li id="source">
-                <a href="https://github.com/BL-CZY/malti" id="source-link">source</a>
-            </li>
-        </div>
-    </ul>
-</nav>
-
-<div class="br"></div>
-
-<script>
-    import { goto } from '$app/navigation';
-    import { onMount } from 'svelte';
-
-    let inputVal = "";
-    let mode = "b";
-    export let noSearch;
-
-    let appendSpecialLetter = (letter) => {
-        inputVal += letter;
-    }
-
-    async function handleSubmit(event) {
-        event.preventDefault();
-        await goto(`/search?query=${inputVal}&skip=0&limit=10&mode=${mode}`);
-        window.location.reload();
-    }
-
-    onMount(() => {
-        if (!noSearch) {
-            document.getElementById("e").checked = false;
-            document.getElementById("m").checked = false;
-            document.getElementById("b").checked = false;
-        }
-    });
-</script>
-
