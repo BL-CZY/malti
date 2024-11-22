@@ -6,7 +6,7 @@ import { getWord, search, init } from "@jg-tpll/malti_search";
 import cors from 'cors';
 
 const app = express();
-const port = 8080;
+const port = 3000;
 
 await init();
 console.log("Init succeeded")
@@ -44,8 +44,8 @@ app.get("/api/search", async (req, res) => {
 
     if (isNaN(maxDis)) {
         maxDis = 3;
-    } 
-    
+    }
+
 
     let result = await search(keyword, skip, limit, maxDis, mode);
     res.write(result);
@@ -64,7 +64,7 @@ app.get("/api/fetch", async (req, res) => {
     let result = await getWord(key);
 
     res.write(result);
-    
+
     res.end();
 })
 
